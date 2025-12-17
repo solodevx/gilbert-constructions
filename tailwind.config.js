@@ -21,8 +21,17 @@ module.exports = {
       xl: "1200px", // extra large devices (desktops)
     },
 
+
     // Extend Tailwind’s default theme (add custom stuff)
     extend: {
+
+      //Font family
+      fontFamily: {
+        primary: "var(--font-dmSans)",   // main font used throughout the site for body text
+        secondary: "var(--font-barlow)", // secondary font, e.g., for headings or accents
+      },
+
+
       colors: {
         primary: "#020258", // custom dark color for main elements
         secondary: "#666666", // medium grey
@@ -34,6 +43,10 @@ module.exports = {
         custom: "0px 4px 54px 10px rgba(18, 19, 21, 0.86)",
         // a very large shadow with some blur and opacity
       },
+
+      backgroundImage: {
+        hero: "url('/assets/img/hero/bg.jpg')"
+      }
     },
   },
 

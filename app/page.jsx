@@ -1,8 +1,14 @@
-import React from "react";
+import Hero from "@/components/ui/Hero";
+import { Topbar } from "@/components/ui/Topbar";
+
 
 const Home = () => {
   return <div>
-    Home
+        
+        <Topbar />
+
+        Hero Section
+        <Hero />
   </div>
 };
 

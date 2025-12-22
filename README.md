@@ -1,3 +1,19 @@
+# Gilbert Constructions Website
+
+## Project Status
+This project is currently in a **clean setup** using **Next.js 14** and **Tailwind CSS v3**.  
+It does **not** use the latest Next.js 16 or Tailwind 4 features, because this setup ensures stability for current development and avoids potential TurboPack issues.
+
+## Branches
+- `main`: previous setup (older project version)
+- `clean-setup`: current stable version (this branch)
+
+## Notes
+- The project is optimized for practice and experimentation.
+- Mobile and tablet layouts are being refined; some small screen responsiveness is pending.
+- Custom fonts are loaded via Google Fonts using Next.js font optimization.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

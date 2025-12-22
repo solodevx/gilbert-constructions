@@ -7,6 +7,7 @@ It does **not** use the latest Next.js 16 or Tailwind 4 features, because this s
 ## Branches
 - `main`: previous setup (older project version)
 - `clean-setup`: current stable version (this branch)
+- Using Next.js 14and Tailwind 3 (no turbopack - too many compilation issue *take note)
 
 ## Notes
 - The project is optimized for practice and experimentation.

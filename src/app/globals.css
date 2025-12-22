@@ -1,26 +1,56 @@
-@import "tailwindcss";
+/* Tailwind base, components, utilities */
+/* Tailwind core imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Base styles MUST be inside @layer base */
+@layer base {
+  /* Body typography */
+body {
+  @apply font-secondary text-secondary;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Headings use primary font and primary color as default*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-primary text-primary;
+}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Optional utility classes */
+/* Custom utility classes for reusable styling */
+@layer utilities {
+  /* Large heading, e.g., for hero sections */
+  .h1 {
+    @apply text-[40px] xl:text-[54px] uppercase font-black leading-[1.1];
+  }
+
+  /* Medium heading */
+  .h2 {
+    @apply text-[36px] leading-[1.3] xl:text-[46px] xl:leading-[56px] capitalize font-bold;
+  }
+
+  /* Smaller heading */
+  .h3 {
+    @apply font-primary font-bold text-3xl;
+  }
+
+  /* Subheading or section heading */
+  .h4 {
+    @apply text-2xl font-semibold;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* Dark mode can be applied using Tailwind's 'dark:' variants */
+
+/* Debug helper: outline all elements (commented out) */
+/* 
+* {
+  outline: 2px solid red;
+} 
+*/

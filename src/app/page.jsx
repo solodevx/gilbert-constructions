@@ -1,4 +1,7 @@
-import React from "react";
+'use client';
+
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 // Page sections (UI components)
 import Topbar from "@/components/ui/Topbar";
@@ -15,14 +18,44 @@ import Footer from "@/components/ui/Footer";
 
 // Home page component
 const Home = () => {
+
+  // Declaring the default state
+  const [headerActive, setHeaderActive ] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHeaderActive(window.scrollY > 200 );
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     // Root wrapper for the homepage sections
     <div>
       {/* Top information bar (phone, email, socials, etc.) */}
       <Topbar />
 
+
       {/* Main navigation header */}
-      <Header />
+      {/* Header Large Screens */}
+      {/* Static & Full-Scale Header */}
+      <div className="relative z-10">
+        <Header />
+      </div>
+
+
+      {/* Header Mobile */}
+      {/* Responsive first (mobile design) */}
+      <div 
+        className={`w-full transition-transform duration-500 fixed top-0 left-0 z-50
+          ${ headerActive ? "translate-y-0" : " translate-y-full" }`}
+      >
+        <Header />
+      </div>
 
       {/* Hero / landing section */}
       <Hero />

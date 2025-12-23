@@ -5,12 +5,12 @@ This project is currently in a **clean setup** using **Next.js 14** and **Tailwi
 It does **not** use the latest Next.js 16 or Tailwind 4 features, because this setup ensures stability for current development and avoids potential TurboPack issues.
 
 ## Branches
-- `main`: previous setup (older project version)
+- `main`: previous setup (older project version - used latest technologies but had a lot of crashes and compilations issue)
+- Next.js 16 with TurboPack and Tailwind is very unstable.
 - `clean-setup`: current stable version (this branch)
 - Using Next.js 14and Tailwind 3 (no turbopack - too many compilation issue *take note)
 
 ## Notes
-- The project is optimized for practice and experimentation.
 - Mobile and tablet layouts are being refined; some small screen responsiveness is pending.
 - Custom fonts are loaded via Google Fonts using Next.js font optimization.
 

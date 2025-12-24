@@ -47,6 +47,8 @@ const Socials = ({ containerStyles, iconStyles }) => {
           href={item.path}
           key={index}
           className={iconStyles}
+          target="_blank"//new tab opens
+          rel="noopener noreferrer"//prevents security risks and hides referrer
         >
           {item.icon}
         </Link>

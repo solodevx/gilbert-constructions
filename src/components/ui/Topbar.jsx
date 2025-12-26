@@ -11,8 +11,8 @@ const Topbar = () => {
     <section
       id="home"
       className="
-        py-4 
-        xl:h-16 xl:py-0 
+        py-3 
+        xl:h-12 xl:py-0 
         bg-gradient-to-t from-[#DB0706] to-[#DA6A6A] 
         flex items-center
       "
@@ -40,7 +40,7 @@ const Topbar = () => {
                 <RiMailFill />
               </div>
               <p className="font-medium text-primary">
-                gilbertconstructions@gmail.com
+                aliquet-vitae@gmail.com
               </p>
             </div>
 

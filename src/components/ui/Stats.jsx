@@ -1,6 +1,6 @@
 const Stats = () => {
   return (
-    <section className="h-screen bg-brown-200">
+    <section className="h-screen bg-blue-200">
         Stats
     </section>
   )

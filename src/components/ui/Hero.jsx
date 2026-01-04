@@ -3,13 +3,13 @@ import { useEffect, useState } from "react"
 
 // Array of background images for the carousel
 const bgImages = [
-  "/images/bg1.jpg",
-  "/images/bg2.jpg",
-  "/images/bg3.jpg",
-  "/images/bg4.jpg",
-  "/images/bg5.jpg",
-  "/images/bg6.jpg",
-  "/images/bg7.jpg",
+  "/assets/img/hero/bg1.jpg",
+  "/assets/img/hero/bg2.jpg",
+  "/assets/img/hero/bg3.jpg",
+  "/assets/img/hero/bg4.jpg",
+  "/assets/img/hero/bg5.jpg",
+  "/assets/img/hero/bg6.jpg",
+  "/assets/img/hero/bg7.jpg",
 ]
 
 const Hero = () => {
@@ -19,7 +19,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % bgImages.length)
-    }, 5000) // change image every 5s
+    }, 5000) // change image every35s
     return () => clearInterval(interval)
   }, [])
 
@@ -29,7 +29,7 @@ const Hero = () => {
       style={{ backgroundImage: `url(${bgImages[currentBg]})` }} // Dynamic background
     >
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-l from-black/0 via-black/50 to-black/70 z-10">
+      <div className="absolute inset-0 bg-gradient-to-l from-black/0 via-black/50 to-black/75 z-10">
         <div className="container mx-auto h-full flex items-center">
           <div className="z-20 text-white text-center xl:text-left mx-auto xl:mx-0 flex flex-col
           items-center xl:items-start max-w-[600px]">

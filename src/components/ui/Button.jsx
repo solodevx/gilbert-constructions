@@ -14,7 +14,7 @@ const Button = ({ text }) => {
         - flex-1 allows the text area to take available space
         - tracking adds letter spacing for a clean, modern look
       */}
-      <div className="flex-1 text-center tracking-[1.2px] font-primary font-bold text-primary text-sm uppercase">
+      <div className="flex-1 text-center tracking-[1.2px] font-primary font-bold text-white text-sm uppercase">
         {text}
       </div>
 

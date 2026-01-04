@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Pretitle from "../Pretitle";
+import Pretitle from "./Pretitle";
 import Button from "./Button";
 
 const About = () => {

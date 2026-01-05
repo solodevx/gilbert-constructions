@@ -28,7 +28,7 @@ const Testimonials = () => {
             </div>
 
             {/* Slider */}
-            <div className="xl:absolute xl:bottom-0 xl:right:[160px] relative max-w-max bg-pink-300">
+            <div className="xl:absolute xl:bottom-0 xl:right:[160px] relative max-w-max ">
               <Slider />
             </div>
 

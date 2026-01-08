@@ -33,7 +33,7 @@ module.exports = {
       colors: {
         primary: "#020258", // custom dark color for main elements
         secondary: "#666666", // medium grey
-        accent: "#DB0706", // bright yellow accent color
+        accent: "#DB0706", // bright red accent color
         border: "#D7D7D7", // light grey for borders
       },
 

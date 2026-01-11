@@ -9,7 +9,7 @@
  */
 
 import { useState } from "react";
-import { Tabs, TabsContent, TabsTrigger, TabsList } from "./tabs";
+import { Tabs, TabsContent, TabsTrigger, TabsList } from "./ui/tabs";
 import Image from "next/image";
 import Button from "./Button";
 

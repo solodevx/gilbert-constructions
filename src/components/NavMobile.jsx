@@ -10,7 +10,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from './sheet';
+} from './ui/sheet';
 // Harmburger icons for mobile styling to activate Sheet
 import { RiMenu3Fill } from 'react-icons/ri';
 // Logo

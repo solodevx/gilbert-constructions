@@ -4,17 +4,17 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 // Page sections (UI components)
-import Topbar from "@/components/ui/Topbar";
-import Header from "@/components/ui/Header";
-import Hero from "@/components/ui/Hero";
-import About from "@/components/ui/About";
-import Stats from "@/components/ui/Stats";
-import Services from "@/components/ui/Services";
-import Work from "@/components/ui/Work";
-import Testimonials from "@/components/ui/Testimonials";
-import Faq from "@/components/ui/Faq";
-import Contact from "@/components/ui/Contact";
-import Footer from "@/components/ui/Footer";
+import Topbar from "@/components/Topbar";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Stats from "@/components/Stats";
+import Services from "@/components/Services";
+import Work from "@/components/Work";
+import Testimonials from "@/components/Testimonials";
+import Faq from "@/components/Faq";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 // Home page component
 const Home = () => {
@@ -83,6 +83,8 @@ const Home = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* <div className="h-[1000px]"></div> */}
     </div>
   );
 };

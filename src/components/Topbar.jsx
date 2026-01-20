@@ -30,7 +30,7 @@ const Topbar = () => {
                 <RiPhoneFill />
               </div>
               <p className="font-medium text-primary">
-                +1 (234) 567-890
+                +234 (909) 720 9796
               </p>
             </div>
 
@@ -40,7 +40,7 @@ const Topbar = () => {
                 <RiMailFill />
               </div>
               <p className="font-medium text-primary">
-                aliquet-vitae@gmail.com
+                info.gilbertconstructions@gmail.com
               </p>
             </div>
 

@@ -65,7 +65,9 @@ const Header = () => {
             </ul>
 
             {/* CTA Button */}
-            <button
+            <button>
+                          <a
+              href="#contact"
               className="
                 group flex items-center justify-between
                 min-w-[200px] h-[54px]
@@ -84,6 +86,7 @@ const Header = () => {
                   className="text-white text-xl transition-transform duration-200 group-hover:rotate-45"
                 />
               </span>
+            </a>
             </button>
 
           </nav>

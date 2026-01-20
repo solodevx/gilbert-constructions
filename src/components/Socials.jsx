@@ -15,23 +15,23 @@ import {
 const socials = [
   {
     icon: <RiFacebookFill />,
-    path: "https://web.facebook.com/",
+    path: "https://web.facebook.com/p/Gilbert-constructions-100063886006405/?_rdc=1&_rdr#",
   },
   {
     icon: <RiTwitterXFill />,
-    path: "https://x.com/",
+    path: "https://x.com/Gilbert54133369?s=20",
   },
   {
     icon: <RiTiktokFill />,
-    path: "https://www.tiktok.com/",
+    path: "https://www.tiktok.com/@gilbertconstructions/",
   },
   {
     icon: <RiInstagramFill />,
-    path: "https://www.instagram.com/",
+    path: "https://www.instagram.com/gilbert_constructions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
   },
   {
     icon: <RiWhatsappFill />,
-    path: "https://web.whatsapp.com/",
+    path: "https://l.facebook.com/l.php?u=https%3A%2F%2Fwa.me%2Fmessage%2FPFIIZ55K7WV3D1%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExWDh6bUhoRVFHTzQ3cFRiRnNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4J8gpnGF96yEgbDQUv4WYviv2prZnVkOmdy5YBrR2Y6Yd86w8xh1IGYKpk0Q_aem_uz2O3HlWyhBct5WkGdPDJA&h=AT0DO32Q8cbP_OrpVYA-zgdSP3vc1_gFx_HQeaFdHqhjH80nS34v1v7PrhQQ1X8yRhFcJYRr_4YxpSX78QzGz68Ro7tyODw6S2va_G2zJ0UwDJQyOmJl9Yc8PupYDkjQQaOKVQ"
   },
 ];
 

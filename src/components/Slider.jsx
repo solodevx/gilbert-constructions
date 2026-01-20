@@ -35,10 +35,11 @@ const Slider = () => {
           {/* Testimonial text and client name */}
           <div className="flex-1 xl:max-w-[340px] flex flex-col gap-2">
             <p>
-              Cras sapien leo, iaculis maximus sapien. Cras ut purus eget enim efficitur pharetra.
+              Gilbert Constructions is a top-notch construction company that provides exceptional services. 
+              Loved how they added small thoughtful touches I didn&apos;t even think of.
             </p>
             <p className="font-primary font-semibold text-primary">
-              Anon Guy
+              Mr. Omoh Gold
             </p>
           </div>
 
@@ -63,7 +64,8 @@ const Slider = () => {
           {/* Testimonial content */}
           <div className="flex-1 xl:max-w-[340px] flex flex-col gap-2">
             <p>
-              Cras sapien leo, iaculis maximus sapien. Cras ut purus eget enim efficitur pharetra.
+              Gilbert Constructions delivered our project on time and exceeded our expectations. 
+              The quality of work and professionalism were outstanding.
             </p>
             <p className="font-primary font-semibold text-primary">
               Anon Guy
@@ -90,8 +92,8 @@ const Slider = () => {
 
           {/* Testimonial content */}
           <div className="flex-1 xl:max-w-[340px] flex flex-col gap-2">
-            <p>
-              Cras sapien leo, iaculis maximus sapien. Cras ut purus eget enim efficitur pharetra.
+            <p>Their attention to detail and communication throughout the renovation process made everything stress-free. 
+              Highly recommended.
             </p>
             <p className="font-primary font-semibold text-primary">
               Anon Guy
@@ -119,7 +121,7 @@ const Slider = () => {
           {/* Testimonial content */}
           <div className="flex-1 xl:max-w-[340px] flex flex-col gap-2">
             <p>
-              Cras sapien leo, iaculis maximus sapien. Cras ut purus eget enim efficitur pharetra.
+              Awesome Company to work with. Their professionalism and dedication to quality are commendable.
             </p>
             <p className="font-primary font-semibold text-primary">
               Anon Guy
@@ -147,10 +149,11 @@ const Slider = () => {
           {/* Testimonial content */}
           <div className="flex-1 xl:max-w-[340px] flex flex-col gap-2">
             <p>
-              Cras sapien leo, iaculis maximus sapien. Cras ut purus eget enim efficitur pharetra.
+              Top-notch construction company. They delivered a stunning project that exceeded my expectations, 
+              and their professionalism and attention to detail were outstanding.
             </p>
             <p className="font-primary font-semibold text-primary">
-              Anon Guy
+              Mr. Akpos Coast
             </p>
           </div>
 

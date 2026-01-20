@@ -1,15 +1,19 @@
 import Button from "./Button"
 import { useEffect, useState } from "react"
 
+// Framer Motion and animation
+import { motion } from "framer-motion";
+import { fadeIn } from "@/animations/variant";
+
 // Array of background images for the carousel
 const bgImages = [
-  "/assets/img/hero/bg1.jpg",
-  "/assets/img/hero/bg2.jpg",
-  "/assets/img/hero/bg3.jpg",
-  "/assets/img/hero/bg4.jpg",
-  "/assets/img/hero/bg5.jpg",
-  "/assets/img/hero/bg6.jpg",
-  "/assets/img/hero/bg7.jpg",
+  "/assets/img/hero/bg1.webp",
+  "/assets/img/hero/bg2.webp",
+  "/assets/img/hero/bg3.webp",
+  "/assets/img/hero/bg4.webp",
+  "/assets/img/hero/bg5.webp",
+  "/assets/img/hero/bg6.webp",
+  "/assets/img/hero/bg7.webp",
 ]
 
 const Hero = () => {
@@ -19,33 +23,54 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % bgImages.length)
-    }, 5000) // change image every35s
+    }, 5000) // change image every 5s
     return () => clearInterval(interval)
   }, [])
 
   return (
     <section
-      className="h-[70vh] bg-no-repeat bg-cover bg-center relative transition-all duration-1000"
+      className="h-[70vh] bg-no-repeat bg-cover bg-center relative transition-[background-image] duration-1000"
       style={{ backgroundImage: `url(${bgImages[currentBg]})` }} // Dynamic background
     >
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-l from-black/0 via-black/50 to-black/75 z-10">
+      <div className="absolute inset-0 bg-gradient-to-l from-black/10 via-black/70 to-black/95 z-10">
         <div className="container mx-auto h-full flex items-center">
           <div className="z-20 text-white text-center xl:text-left mx-auto xl:mx-0 flex flex-col
           items-center xl:items-start max-w-[600px]">
-            <h1 className="h1 text-white mb-4">
-              <span className="text-accent">Nullam </span>
-              fermen viverra orci
-            </h1>
-            <p className="mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              In nisi enim, lobortis vel porttitor sit amet, tincidunt non massa.
-              Donec facilisis et eros sed ullamcorper.
-            </p>
+            <motion.h1
+              className="h1 text-white mb-4"
+              variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.8 }}
+            >
+              Built & Engineered <br /> 
+              with
+              <span className="text-accent"> precision</span>
+              
+            </motion.h1>
+            <motion.p
+              className="mb-10"
+              variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.8 }}
+            >
+              From concept to completion, every build starts with clear intent. 
+              Precision engineering shapes how we work and deliver results that stands up to time and use.
+            </motion.p>
 
             {/* CTA Button */}
-            <div>
-              <Button text="See our work"/>
-            </div>
+            <motion.div
+              variants={fadeIn("up", 0.6)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.8 }}
+            >
+              <a href="#projects">
+                <Button text="See our work" />
+              </a>
+            </motion.div>
           </div>
         </div>
       </div>

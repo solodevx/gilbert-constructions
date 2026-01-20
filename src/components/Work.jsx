@@ -3,6 +3,9 @@ import Link from "next/link";
 import Pretitle from "./Pretitle";
 import { RiArrowRightUpLine, RiCheckboxCircleFill } from "react-icons/ri";
 
+// Framer Motion and animation
+import { motion } from "framer-motion";
+import { fadeIn } from "@/animations/variant";
 
 // DATA SOURCE FOR WORK SECTION
 // Each object represents one project card
@@ -10,26 +13,26 @@ const workData = [
   {
     img: "/assets/img/work/restoration.jpg", // Image path (served from /public)
     name: "restoration",                     // Project title
-    description: "Your short description",   // Short project summary
-    href: "#"                                 // Link to project detail (currently empty)
+    description: "Structural Recovery",   // Short project summary
+    href: "https://www.instagram.com/gilbert_constructions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="                                 // Link to project detail (currently empty)
   },
   {
     img: "/assets/img/work/construction.jpg",
     name: "construction",
-    description: "Your short description",
-    href: "#"
+    description: "New & Purposed Builds",
+    href: "https://www.instagram.com/gilbert_constructions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
   },
   {
     img: "/assets/img/work/renovation.jpg",
     name: "renovation",
-    description: "Your short description",
-    href: "#"
+    description: "Modern Upgrades",
+    href: "https://www.instagram.com/gilbert_constructions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
   },
   {
     img: "/assets/img/work/consulting.jpg",
     name: "consulting",
-    description: "Your short description",
-    href: "#"
+    description: "Expertise & Guidance",
+    href: "https://www.instagram.com/gilbert_constructions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
   },
 ];
 
@@ -42,7 +45,13 @@ const Work = () => {
 
       {/* Centered container for section heading */}
       <div className="container mx-auto">
-        <div className="text-center max-w-[540px] mx-auto xl:mb-20">
+        <motion.div 
+          className="text-center max-w-[540px] mx-auto xl:mb-20"
+                    variants={fadeIn("up", 0.2)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.2 }}
+        >
 
           {/* Small section label */}
           <Pretitle text={"our work"} center />
@@ -52,15 +61,22 @@ const Work = () => {
 
           {/* Section description */}
           <p className="max-w-[480px] mb-11 mx-auto">
-            Vestibulum vitae risus fermentum, egestas libero maximus, eleifend lacus.
+            We provide expert guidance to ensure projects run smoothly from planning to completion. 
+            Our consulting services help clients make informed decisions and avoid costly mistakes.
           </p>
           
-        </div>
+        </motion.div>
       </div>
 
       {/* Responsive grid for project cards */}
       {/* 1 column (mobile), 2 columns (tablet), 4 columns (xl screens) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
+        variants={fadeIn("down", 0.2)} 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+       >
 
         {/* Loop through work data to render each project card */}
         {workData.map((item, index) => {
@@ -126,7 +142,7 @@ const Work = () => {
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };

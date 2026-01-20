@@ -7,9 +7,24 @@ import { RiArrowRightLine, RiPhoneFill, RiMailFill, RiMapPin2Fill } from "react-
 // Social media icons component
 import Socials from "./Socials";
 
+// Framer Motion for animations
+import { motion } from "framer-motion";
+// Shared animation variants
+import { fadeIn } from "@/animations/variant";
+
 const Footer = () => {
+  // Get new date 
+  const year = new Date().getFullYear();
+
+
   return (
-    <footer className="mt-16 xl:mt-32 bg-primary">
+    <motion.footer
+      className="mt-16 xl:mt-32 bg-primary"
+      variants={fadeIn("up", 0.1)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.1 }}
+    >
       <div className="container mx-auto">
         {/* Main footer content */}
         <div className="py-16 xl:py-[100px] flex flex-col xl:flex-row gap-[60px] xl:gap-[30px]">
@@ -19,13 +34,16 @@ const Footer = () => {
             <Link href="/" className="flex mb-6">
               <Image
                 src="/assets/logo.svg"
-                width={50}
-                height={50}
+                width={70}
+                height={70}
                 alt="Company Logo"
               />
             </Link>
+            <p className="text-border max-w-[270px] uppercase text-3xl font-bold">
+              <span className="text-accent">Gilbert </span>Constructions
+            </p>
             <p className="text-border max-w-[270px]">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis amet minima eaque rem dignissimos adipisci
+              ...we deliver pratical construction solutions built on experience, precision, innovation and trust.
             </p>
           </div>
 
@@ -57,7 +75,7 @@ const Footer = () => {
           <div className="flex-1 text-border">
             <h4 className="h4 text-white mb-5">Newsletter</h4>
             <p className="mb-9">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet.
+              Get occasional updates on our projects, industry insights, and company news — no spam, just relevant information.
             </p>
 
             {/* Email input & submit button */}
@@ -80,7 +98,7 @@ const Footer = () => {
       <div className="container mx-auto xl:px-0 py-12 border-t border-border/10 flex flex-col gap-6 xl:flex-row items-center justify-between">
         {/* Copyright */}
         <p className="text-border">
-          Copyright &copy; 2026 Gilbert Constructions. All Rights Reserved.
+          Copyright &copy; {year} Gilbert Constructions. All Rights Reserved.
         </p>
 
         {/* Social media links */}
@@ -89,7 +107,11 @@ const Footer = () => {
           iconStyles="hover:text-accent transition-all"
         />
       </div>
-    </footer>
+
+      <hr className="border-t border-border/10" />
+
+      <div></div>
+    </motion.footer>
   );
 };
 

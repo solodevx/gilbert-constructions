@@ -25,14 +25,14 @@ module.exports = {
       
       // Font family
       fontFamily: {
-        primary: "var(--font-dmSans)",   // main font used throughout the site for body text
-        secondary: "var(--font-barlow)", // secondary font, e.g., for headings or accents
+        primary: "var(--font-helvetica)",   // main font used throughout the site for body text
+        secondary: "var(--font-roboto)", // secondary font, e.g., for headings or accents
       },
 
       // Colors
       colors: {
-        primary: "#020258", // custom dark color for main elements
-        secondary: "#666666", // medium grey
+        primary: "#000000", // custom dark color for main elements
+        secondary: "#020258", // medium grey
         accent: "#DB0706", // bright red accent color
         border: "#D7D7D7", // light grey for borders
       },

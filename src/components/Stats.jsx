@@ -23,8 +23,8 @@ const statsData = [
     statName: "Successful Projects",
   },
   {
-    endcountNum: 15,
-    endcountText: "K",
+    endcountNum: 500,
+    endcountText: "+",
     statName: "Happy Clients",
   },
   {

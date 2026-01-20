@@ -3,6 +3,10 @@ import Button from "./Button";
 import Pretitle from "./Pretitle";
 import Slider from "./Slider";
 
+// Framer Motion and animation
+import { motion } from "framer-motion";
+import { fadeIn } from "@/animations/variant";
+
 const Testimonials = () => {
   return (
     // Main testimonials section with top spacing
@@ -12,33 +16,48 @@ const Testimonials = () => {
         <div className="flex flex-col xl:flex-row relative">
 
           {/* ===== Text Content ===== */}
-          <div className="flex-1 max-w-[484px] xl:pt-[54px] mb-12 xl:mb-0">
+          <motion.div
+            className="flex-1 max-w-[484px] xl:pt-[54px] mb-12 xl:mb-0"
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+          >
 
             {/* Pretitle heading */}
-            <Pretitle text="testimonials" center />
+            <Pretitle text="testimonials" left />
 
             {/* Main heading */}
             <h2 className="h2 mb-6 capitalize">
-              Vestibulum vitae risus fermentum.
+              What Our Clients Say.
             </h2>
 
             {/* Description text */}
             <p className="mb-10 max-w-[420px]">
-              Donec consectetur suscipit nunc quis ultrices. Quisque suscipit diam
-              non est imperdiet, et fringilla sapien condimentum.
+              Our clients are our top priority, we pride ourselves on providing exceptional service to our clients. 
+              From precise design to flawless execution, we work tirelessly to deliver exceptional results. 
+              See what they have to say about us.
             </p>
 
             {/* Call-to-action button */}
-            <Button text="Work with us" />
-          </div>
+            <a href="#contact">
+              <Button text="Work with us" />
+            </a>
+          </motion.div>
 
           {/* ===== Image & Slider Section ===== */}
-          <div className="flex-1 flex flex-col xl:flex-row xl:justify-end">
+          <motion.div
+            className="flex-1 flex flex-col xl:flex-row xl:justify-end"
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+          >
 
             {/* Decorative testimonial image (desktop only) */}
             <div className="relative hidden xl:flex xl:w-[570px] xl:w-[580px]">
               <Image
-                src="/assets/img/testimonials/img.png"
+                src="/assets/img/testimonials/img.jpg"
                 fill
                 alt=""
                 className="object-contain"
@@ -63,7 +82,7 @@ const Testimonials = () => {
               <Slider />
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

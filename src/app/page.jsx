@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     // Root wrapper for the homepage sections
-    <div>
+    <div className="overflow-hidden">
       {/* Top information bar (phone, email, socials, etc.) */}
       <Topbar />
 
@@ -51,8 +51,7 @@ const Home = () => {
       {/* Header Mobile */}
       {/* Responsive first (mobile design) */}
       <div 
-        className={`w-full transition-transform duration-500 fixed top-0 left-0 z-50
-          ${ headerActive ? "translate-y-0" : "-translate-y-full" }`}
+        className={`w-full transition-transform duration-500 fixed top-0 left-0 z-50 ${ headerActive ? "translate-y-0" : "-translate-y-full" }`}
       >
         <Header />
       </div>

@@ -3,11 +3,13 @@ import { DM_Sans, Barlow } from "next/font/google";
 
 /* Import global Tailwind + custom CSS */
 import "./globals.css";
+import { icons } from "lucide-react";
 
 /* Page metadata (SEO + browser tab info) */
 export const metadata = {
   title: "Gilbert Constructions",
   description: "Professional construction and building services",
+  icons: "./gilbert's_logo.ico",
 };
 
 

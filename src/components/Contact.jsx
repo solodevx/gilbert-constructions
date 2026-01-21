@@ -92,7 +92,7 @@ const Contact = () => {
                     </h5>
                     <p>Mon - Fri: 8:00am - 5:00pm</p>
                     <p className="mb-2">Sat - Sun: 8:00am - 2:00pm</p>
-                    <p className="font-semibold">+1 (234) 567-890</p>
+                    <p className="font-semibold">+234 (909) 720 9796</p>
                   </div>
                 </div>
 

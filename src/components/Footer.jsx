@@ -54,19 +54,19 @@ const Footer = () => {
               {/* Address */}
               <li className="flex items-center gap-4">
                 <RiMapPin2Fill className="text-accent text-xl" />
-                <p>123, Lorem ipsum dolor, Benin City, Edo, NG</p>
+                <p>Ugbowo, Benin City, Edo, NG</p>
               </li>
 
               {/* Phone */}
               <li className="flex items-center gap-4">
                 <RiPhoneFill className="text-accent text-xl" />
-                <p>+1 (234) 567-890</p>
+                <p>+234 (909) 720 9796</p>
               </li>
 
               {/* Email */}
               <li className="flex items-center gap-4">
                 <RiMailFill className="text-accent text-xl" />
-                <p>gilbert-constructions@gmail.com</p>
+                <p>info.gilbertconstructions@gmail.com</p>
               </li>
             </ul>
           </div>

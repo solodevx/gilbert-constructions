@@ -134,6 +134,7 @@ const Work = () => {
                     flex justify-center items-center
                     absolute right-3
                   "
+                  target="_blank"
                 >
                   <RiArrowRightUpLine />
                 </Link>

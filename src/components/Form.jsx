@@ -1,81 +1,163 @@
-// shadcn / Radix Select components (UI primitives)
+import { useState } from "react";
+
+// shadcn / Radix Select components
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
 } from "./ui/select";
 
-// shadcn Input & Textarea components
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-
-// Reusable site Button component
 import Button from "./Button";
 
 const Form = () => {
-    return (
-        // Main form wrapper (vertical layout)
-        <form className="flex flex-col">
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
 
-            {/* Top section: inputs + select */}
-            <div className="flex flex-col gap-[20px] mb-[20px]">
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(""); // "success" | "error"
 
-                {/* Full name input */}
-                <Input type="fullname" placeholder="Full Name" />
-                <Input type="email" placeholder="Email Address" />
+  // Handle normal inputs
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-                {/* Phone input + service select (stacked on mobile, row on xl) */}
-                <div className="flex flex-col xl:flex-row gap-[20px]">
+  // Handle Select (Radix)
+  const handleSelectChange = (value) => {
+    setFormData((prev) => ({
+      ...prev,
+      service: value,
+    }));
+  };
 
-                    {/* Phone number input */}
-                    <Input type="phone" placeholder="Phone Number" />
+  // Handle submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
 
-                    {/* Service selection dropdown */}
-                    <Select className="bg-white">
-                        {/* Select trigger (what the user clicks) */}
-                        <SelectTrigger className="w-full rounded-none h-[54px] text-secondary outline-none">
-                            <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        {/* Dropdown content (portal-rendered by Radix) */}
-                        <SelectContent className="bg-white z-50">
-                            {/* Grouping select items */}
-                            <SelectGroup>
-                                {/* Optional label inside dropdown */}
-                                <SelectLabel>Select a service</SelectLabel>
-                                {/* Individual selectable items */}
-                                <SelectItem value="construction">Construction</SelectItem>
-                                <SelectItem value="renovation">Renovation</SelectItem>
-                                <SelectItem value="restoration">Restoration</SelectItem>
-                                <SelectItem value="consulting">Consulting</SelectItem>
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xreevekb",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-                </div>
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          fullname: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-            </div>
+  return (
+    <form className="flex flex-col" onSubmit={handleSubmit}>
+      {/* Inputs */}
+      <div className="flex flex-col gap-[20px] mb-[20px]">
+        <Input
+          type="text"
+          name="fullname"
+          placeholder="Full Name"
+          value={formData.fullname}
+          onChange={handleChange}
+          required
+        />
 
-            {/* Bottom section: message textarea + submit button */}
-            <div className="flex flex-col gap-6">
+        <Input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
 
-                {/* Message input */}
-                <Textarea
-                    className="h-[180px] resize-none rounded-none"
-                    placeholder="Enter your message"
-                />
-                {/* Submit button */}
-                <Button text="Send Message">
-                    Send Message
-                </Button>
-                
-            </div>
+        <div className="flex flex-col xl:flex-row gap-[20px]">
+          <Input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
 
-        </form>
-    )
-}
+          <Select value={formData.service} onValueChange={handleSelectChange}>
+            <SelectTrigger className="w-full rounded-none h-[54px]">
+              <SelectValue placeholder="Select a service" />
+            </SelectTrigger>
+            <SelectContent className="bg-white z-50">
+              <SelectGroup>
+                <SelectLabel>Select a service</SelectLabel>
+                <SelectItem value="construction">Construction</SelectItem>
+                <SelectItem value="renovation">Renovation</SelectItem>
+                <SelectItem value="restoration">Restoration</SelectItem>
+                <SelectItem value="consulting">Consulting</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      {/* Message */}
+      <div className="flex flex-col gap-6">
+        <Textarea
+          className="h-[180px] resize-none rounded-none"
+          name="message"
+          placeholder="Enter your message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+        />
+
+        <Button type="submit" text={loading ? "Sending..." : "Send Message"} />
+
+        {status === "success" && (
+          <p className="text-green-600 font-semibold">
+            Your message has been sent successfully!
+          </p>
+        )}
+
+        {status === "error" && (
+          <p className="text-red-600 font-semibold">
+            Oops! Something went wrong. Please try again.
+          </p>
+        )}
+      </div>
+    </form>
+  );
+};
 
 export default Form;

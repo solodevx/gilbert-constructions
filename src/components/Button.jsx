@@ -6,7 +6,7 @@ const Button = ({ text }) => {
   return (
     // Main button wrapper
     <button
-      type="button"
+      type="submit"
       onClick={onClick}
       className="w-[210px] h-[54px] py-[5px] pl-[10px] pr-[5px] flex items-center
       justify-between min-w-[208px] group bg-accent"

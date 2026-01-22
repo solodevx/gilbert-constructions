@@ -28,7 +28,7 @@ const Slider = () => {
               fill
               className="object-contain"
               quality={100}
-              alt="Client's Avatar 1"
+              alt="Client's Avatar"
             />
           </div>
 
@@ -53,11 +53,11 @@ const Slider = () => {
           {/* Client avatar */}
           <div className="relative hidden xl:flex w-[90px] h-[90px]">
             <Image
-              src="/assets/img/testimonials/avatar1.jpg"
+              src="/assets/img/testimonials/avatar2.jpg"
               fill
               className="object-contain"
               quality={100}
-              alt="Client's Avatar 1"
+              alt="Client's Avatar"
             />
           </div>
 
@@ -68,7 +68,7 @@ const Slider = () => {
               The quality of work and professionalism were outstanding.
             </p>
             <p className="font-primary font-semibold text-primary">
-              Anon Guy
+              Mr. Akpos Coast
             </p>
           </div>
 
@@ -82,11 +82,11 @@ const Slider = () => {
           {/* Client avatar */}
           <div className="relative hidden xl:flex w-[90px] h-[90px]">
             <Image
-              src="/assets/img/testimonials/avatar1.jpg"
+              src="/assets/img/testimonials/avatar3.jpg"
               fill
               className="object-contain"
               quality={100}
-              alt="Client's Avatar 1"
+              alt="Client's Avatar"
             />
           </div>
 
@@ -110,11 +110,11 @@ const Slider = () => {
           {/* Client avatar */}
           <div className="relative hidden xl:flex w-[90px] h-[90px]">
             <Image
-              src="/assets/img/testimonials/avatar1.jpg"
+              src="/assets/img/testimonials/avatar3.jpg"
               fill
               className="object-contain"
               quality={100}
-              alt="Client's Avatar 1"
+              alt="Client's Avatar"
             />
           </div>
 
@@ -138,11 +138,11 @@ const Slider = () => {
           {/* Client avatar */}
           <div className="relative hidden xl:flex w-[90px] h-[90px]">
             <Image
-              src="/assets/img/testimonials/avatar1.jpg"
+              src="/assets/img/testimonials/avatar3.jpg"
               fill
               className="object-contain"
               quality={100}
-              alt="Client's Avatar 1"
+              alt="Client's Avatar"
             />
           </div>
 

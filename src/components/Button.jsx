@@ -2,7 +2,7 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 import { onClick } from "process";
 
 // Reusable Button component
-const Button = ({ text }) => {
+const Button = ({ children, text }) => {
   return (
     // Main button wrapper
     <button
@@ -18,7 +18,7 @@ const Button = ({ text }) => {
         - tracking adds letter spacing for a clean, modern look
       */}
       <div className="flex-1 text-center tracking-[1.2px] font-primary font-bold text-white text-sm uppercase">
-        {text}
+        {children ?? text}
       </div>
 
       {/* Icon container */}

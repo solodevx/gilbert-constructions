@@ -55,7 +55,7 @@ const Testimonials = () => {
           >
 
             {/* Decorative testimonial image (desktop only) */}
-            <div className="relative hidden xl:flex xl:w-[570px] xl:w-[580px]">
+            <div className="relative hidden xl:flex xl:w-[580px]">
               <Image
                 src="/assets/img/testimonials/img.jpg"
                 fill

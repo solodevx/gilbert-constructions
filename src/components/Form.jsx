@@ -23,7 +23,7 @@ const Form = () => {
     phone: "",
     service: "",
     message: "",
-    hp_field: "",
+    hp_field: "", // honeypot
   });
 
   const [loading, setLoading] = useState(false);
@@ -52,62 +52,74 @@ const Form = () => {
     setLoading(true);
     setStatus("");
 
-    // Added honeypot to prevent spam emailing
+    // ================= Honeypot =================
+    // Bot detected → silently ignore submission
     if (formData.hp_field) {
-        // Bot detection! Ignore submission
       setLoading(false);
       return;
     }
 
-    // Domain restriction: only allow company emails
-    const allowedDomain = "gilbertconstructions.com";
-    if (!formData.email.endsWith(`@${allowedDomain}`)) {
+    // ================= Domain restriction =================
+    // Comment this out while testing with Gmail etc.
+    // Enable this when site is live in it domain name
+    // const allowedDomain = "gilbertconstructions.com";
+    // if (!formData.email.endsWith(`@${allowedDomain}`)) {
+    //   setStatus("error");
+    //   setLoading(false);
+    //   return;
+    // }
+
+    // ================= Form validation =================
+    if (
+      !formData.fullname ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.service ||
+      !formData.message
+    ) {
       setStatus("error");
       setLoading(false);
       return;
     }
 
-    // Form Validation
-    if (!formData.fullname || !formData.email || !formData.phone || !formData.service || !formData.message) {
-      setStatus("error");
-      setLoading(false);
-      return;
-    }
-
-    // TODO: Add HTML message
-    //Build HTML formatted message
+    // ================= HTML formatted email =================
+    // This is what makes the email look professional
     const htmlMessage = `
-    <h2>New Contact Form Submission</h2>
-    <p><strong>Name:</strong> ${formData.fullname}</p>
-    <p><strong>Email:</strong> ${formData.email}</p>
-    <p><strong>Phone:</strong> ${formData.phone}</p>
-    <p><strong>Service:</strong> ${formData.service}</p>
-    <p><strong>Message:</strong></p>
-    <p>${formData.message}</p>
-    <hr />
-    <small>Sent via Gilbert Constructions Website Contact Form</small>
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${formData.fullname}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Phone:</strong> ${formData.phone}</p>
+      <p><strong>Service:</strong> ${formData.service}</p>
+      <p><strong>Message:</strong></p>
+      <p>${formData.message}</p>
+      <hr />
+      <small>Sent via Gilbert Constructions Website</small>
     `;
 
     try {
+      // IMPORTANT:
+      // Send ONLY the fields Formspree expects
       const response = await fetch("https://formspree.io/f/xreevekb", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.fullname,
+          email: formData.email,
+          message: htmlMessage,
+        }),
       });
 
-      // Force custom spinner to be visible for at least 2 seconds
+      // Force spinner to stay visible for UX
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       if (response.ok) {
         setStatus("success");
 
-        // Clear success message after 5 seconds
-        setTimeout(() => {
-          setStatus("");
-        }, 5000);
+        // Auto-hide success message
+        setTimeout(() => setStatus(""), 5000);
 
         // Reset form
         setFormData({
@@ -116,6 +128,7 @@ const Form = () => {
           phone: "",
           service: "",
           message: "",
+          hp_field: "",
         });
       } else {
         setStatus("error");
@@ -138,7 +151,6 @@ const Form = () => {
         }`}
         onSubmit={handleSubmit}
       >
-        {/* Inputs */}
         <div className="flex flex-col gap-[20px] mb-[20px]">
           <Input
             type="text"
@@ -149,6 +161,7 @@ const Form = () => {
             required
           />
 
+          {/* Honeypot field (hidden from users) */}
           <Input
             type="text"
             name="hp_field"
@@ -193,26 +206,21 @@ const Form = () => {
           </div>
         </div>
 
-        {/* Message */}
-        <div className="flex flex-col gap-6">
-          <Textarea
-            className="h-[180px] resize-none rounded-none"
-            name="message"
-            placeholder="Enter your message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
+        <Textarea
+          className="h-[180px] resize-none rounded-none"
+          name="message"
+          placeholder="Enter your message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+        />
 
-          {/* Submit button */}
-          <Button
-            type="submit"
-            text={"Send Message"}
-            disabled={loading}
-            aria-busy={loading}
-            className="flex items-center justify-center gap-2"
-          />
-        </div>
+        <Button
+          type="submit"
+          text="Send Message"
+          disabled={loading}
+          aria-busy={loading}
+        />
       </form>
 
       {/* =================== Overlay =================== */}
@@ -231,22 +239,21 @@ const Form = () => {
                 Message sent successfully
               </h2>
               <p className="text-sm text-gray-500 mt-2">
-                Thank you for your message. We will get back to you soon.
+                Thank you. We’ll get back to you shortly.
               </p>
             </div>
           )}
         </div>
       )}
 
-      {/* =================== Error message =================== */}
+      {/* =================== Error =================== */}
       {status === "error" && (
-        <div className="mt-6 p-6 bg-red-100 border border-red-200 rounded-lg animate-fade-in">
-          <h4 className="text-red-700 font-semibold text-lg mb-1">
-            Error Sending Message
+        <div className="mt-6 p-6 bg-red-100 border border-red-200 rounded-lg">
+          <h4 className="text-red-700 font-semibold">
+            Error sending message
           </h4>
           <p className="text-red-600">
-            Something went wrong while sending your message. Please refresh the
-            page or try again later in a moment.
+            Please try again later.
           </p>
         </div>
       )}

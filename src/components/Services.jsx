@@ -11,8 +11,7 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsTrigger, TabsList } from "./ui/tabs";
 import Image from "next/image";
-import Button from "./Button";
-import Modal from "./Modal";
+// import Button from "./Button";
 
 
 // Framer Motion and animation
@@ -135,7 +134,6 @@ const Services = () => {
    * Used mainly for styling logic inside TabsTrigger
    */
   const [activeTab, setActiveTab] = useState("construction");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
 
@@ -262,7 +260,7 @@ const Services = () => {
                         ))}
                       </ul>
 
-                      {/* CTA */}
+                      {/* CTA
                       <div className="flex justify-center md:justify-start">
                         <Button
                           text="read more"
@@ -271,7 +269,7 @@ const Services = () => {
                             setIsModalOpen(true);
                           }}
                         />
-                      </div>
+                      </div> */}
                       
                     </div>
                   </motion.div>
@@ -280,27 +278,6 @@ const Services = () => {
             </div>
           </Tabs>
         </motion.div>
-
-        <Modal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-        >
-          {selectedService && (
-            <>
-              <h3 className="h3 mb-4">{selectedService.title}</h3>
-              <p className="mb-6">{selectedService.description}</p>
-
-              <ul className="space-y-2">
-                {selectedService.serviceList.map((service, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <span className="w-2 h-2 bg-primary block" />
-                    {service}
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-        </Modal>
 
       </div>
     </section>

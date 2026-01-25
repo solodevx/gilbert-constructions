@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Button from "./Button";
 import Pretitle from "./Pretitle";
 import Slider from "./Slider";
 
@@ -39,10 +38,6 @@ const Testimonials = () => {
               See what they have to say about us.
             </p>
 
-            {/* Call-to-action button */}
-            <a href="#contact">
-              <Button text="Work with us" />
-            </a>
           </motion.div>
 
           {/* ===== Image & Slider Section ===== */}

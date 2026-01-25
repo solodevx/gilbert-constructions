@@ -146,7 +146,7 @@ const Form = () => {
     <>
       {/* =================== Form =================== */}
       <form
-        className={`flex flex-col ${
+        className={`flex flex-col gap-4 ${
           status === "success" ? "pointer-events-none opacity-70" : ""
         }`}
         onSubmit={handleSubmit}

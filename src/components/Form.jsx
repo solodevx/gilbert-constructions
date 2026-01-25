@@ -113,13 +113,13 @@ const Form = () => {
       });
 
       // Force spinner to stay visible for UX
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
       if (response.ok) {
         setStatus("success");
 
         // Auto-hide success message
-        setTimeout(() => setStatus(""), 5000);
+        setTimeout(() => setStatus(""), 3000);
 
         // Reset form
         setFormData({
@@ -132,11 +132,11 @@ const Form = () => {
         });
       } else {
         setStatus("error");
-        setTimeout(() => setStatus(""), 5000);
+        setTimeout(() => setStatus(""), 2000);
       }
     } catch (error) {
       setStatus("error");
-      setTimeout(() => setStatus(""), 5000);
+      setTimeout(() => setStatus(""), 2000);
     } finally {
       setLoading(false);
     }

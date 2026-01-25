@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,10 +13,78 @@ import { motion } from "framer-motion";
 // Shared animation variants
 import { fadeIn } from "@/animations/variant";
 
+// Custom spinner for loading
+import CustomSpinner from "./CustomSpinner";
+
 const Footer = () => {
   // Get new date 
   const year = new Date().getFullYear();
 
+  // Newsletter state
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(""); // "success" | "error"
+  const [hp_field, setHpField] = useState(""); // Honeypot for bots
+
+  // Handle newsletter submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    // Honeypot: if hidden field is filled, it's likely a bot
+    if (hp_field) {
+      setLoading(false);
+      return;
+    }
+
+    // Simple email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus("error");
+      setLoading(false);
+      return;
+    }
+
+      // HTML formatted message
+  const htmlMessage = `
+    <h2>New Newsletter Subscription</h2>
+    <p><strong>Email:</strong> ${email}</p>
+    <hr />
+    <small>Subscribed via Gilbert Constructions Website Newsletter</small>
+  `;
+
+    try {
+      // Simulate sending to Formspree or other API
+      const response = await fetch("https://formspree.io/f/xwvlnqzd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      // Minimum spinner visibility
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      if (response.ok) {
+        setStatus("success");
+        setEmail(""); // Clear input
+
+        // Clear success message after 2 seconds
+        setTimeout(() => setStatus(""), 2000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus(""), 2000);
+      }
+    } catch (err) {
+      setStatus("error");
+      setTimeout(() => setStatus(""), 2000);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <motion.footer
@@ -43,7 +112,7 @@ const Footer = () => {
               <span className="text-accent">Gilbert </span>Constructions
             </p>
             <p className="text-border max-w-[270px]">
-              ...we deliver pratical construction solutions built on experience, precision, innovation and trust.
+              ...we deliver practical construction solutions built on experience, precision, innovation and trust.
             </p>
           </div>
 
@@ -79,18 +148,34 @@ const Footer = () => {
             </p>
 
             {/* Email input & submit button */}
-            <div className="relative max-w-[370px]">
+            <form onSubmit={handleSubmit} className="relative max-w-[370px]">
+              {/* Honeypot for bots */}
               <input
                 type="text"
+                name="hp_field"
+                value={hp_field}
+                onChange={(e) => setHpField(e.target.value)}
+                className="hidden"
+              />
+
+              <input
+                type="email"
                 placeholder="Enter your email"
                 className="bg-[#222427] h-16 w-full pl-7 rounded-none outline-none flex items-center"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
-              <button className="bg-accent w-12 h-12 absolute right-2 top-2 bottom-2 text-primary text-xl flex items-center justify-center">
+
+              <button
+                type="submit"
+                className="bg-accent w-12 h-12 absolute right-2 top-2 bottom-2 text-primary text-xl flex items-center justify-center"
+                disabled={loading}
+              >
                 <RiArrowRightLine />
               </button>
-            </div>
+            </form>
           </div>
-
         </div>
       </div>
 
@@ -110,7 +195,40 @@ const Footer = () => {
 
       <hr className="border-t border-border/10" />
 
-      <div></div>
+      {/* =================== Overlay =================== */}
+      {(loading || status === "success") && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          {loading && (
+            <div className="bg-white p-6 rounded-lg flex flex-col items-center gap-4">
+              <CustomSpinner />
+              <p className="text-sm text-gray-600">Sending email…</p>
+            </div>
+          )}
+
+          {status === "success" && (
+            <div className="bg-white p-8 rounded-lg text-center animate-fade-in">
+              <h2 className="text-lg font-semibold text-green-600">
+                Subscription successful
+              </h2>
+              <p className="text-sm text-gray-500 mt-2">
+                Thank you for subscribing. You will receive updates soon.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* =================== Error message =================== */}
+      {status === "error" && (
+        <div className="mt-6 p-6 bg-red-100 border border-red-200 rounded-lg animate-fade-in">
+          <h4 className="text-red-700 font-semibold text-lg mb-1">
+            Error Sending Email
+          </h4>
+          <p className="text-red-600">
+            Something went wrong. Please refresh the page or try again later.
+          </p>
+        </div>
+      )}
     </motion.footer>
   );
 };

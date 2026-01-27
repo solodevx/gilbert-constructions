@@ -31,7 +31,7 @@ const socials = [
   },
   {
     icon: <RiWhatsappFill />,
-    path: "https://l.facebook.com/l.php?u=https%3A%2F%2Fwa.me%2Fmessage%2FPFIIZ55K7WV3D1%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExWDh6bUhoRVFHTzQ3cFRiRnNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4J8gpnGF96yEgbDQUv4WYviv2prZnVkOmdy5YBrR2Y6Yd86w8xh1IGYKpk0Q_aem_uz2O3HlWyhBct5WkGdPDJA&h=AT0DO32Q8cbP_OrpVYA-zgdSP3vc1_gFx_HQeaFdHqhjH80nS34v1v7PrhQQ1X8yRhFcJYRr_4YxpSX78QzGz68Ro7tyODw6S2va_G2zJ0UwDJQyOmJl9Yc8PupYDkjQQaOKVQ"
+    path: "https://wa.me/2349097209796?text=Hello%20Gilbert%20Constructions,%20I%20would%20like%20to%20make%20an%20enquiry"
   },
 ];
 

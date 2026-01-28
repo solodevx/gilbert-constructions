@@ -9,7 +9,7 @@ export const metadata = {
   title: "Gilbert Constructions",
   description: "Professional construction and building services",
   icons: {
-    icon: "/gilbets_logo.ico",
+    icon: "/gilberts.ico",
   }
 };
 

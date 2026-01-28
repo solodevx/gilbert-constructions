@@ -50,7 +50,7 @@ const Work = () => {
                     variants={fadeIn("up", 0.2)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.2 }}
         >
 
           {/* Small section label */}
@@ -75,7 +75,7 @@ const Work = () => {
         variants={fadeIn("down", 0.2)} 
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
        >
 
         {/* Loop through work data to render each project card */}

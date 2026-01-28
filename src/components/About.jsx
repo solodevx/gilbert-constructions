@@ -25,7 +25,7 @@ const About = () => {
               variants={fadeIn("right", 0.2)}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
 
               {/* Section pretitle */}
@@ -73,7 +73,7 @@ const About = () => {
             variants={fadeIn("left", 0.2)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             {/* Image wrapper for positioning decorative elements */}
             <div className="xl:w-[444px] xl:h-[493px] relative">

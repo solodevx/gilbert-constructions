@@ -147,7 +147,7 @@ const Services = () => {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Pretitle text={"Our Services"} center />
           <h2 className="h2 mb-3 capitalize">Our Areas of Expertise</h2>
@@ -162,7 +162,7 @@ const Services = () => {
           variants={fadeIn("down", 0.3)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           {/* Tabs Wrapper */}
           <Tabs

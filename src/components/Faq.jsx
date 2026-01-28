@@ -65,7 +65,7 @@ const Faq = () => {
           variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Pretitle text="faq" center />
           <h2 className="h2 mb-3 capitalize">
